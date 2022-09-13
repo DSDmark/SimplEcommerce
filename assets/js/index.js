@@ -2,14 +2,15 @@
 const canvas = document.getElementById("cvs");
 const penColor = document.getElementById("sketchColor");
 const changeColor = document.getElementById("changeColor");
+changeColor.addEventListener("onclick", () => console.log("hey"));
 const ctx = canvas.getContext("2d");
 canvas.style.background = "black";
 const CH = (canvas.height = 400);
 const CW = (canvas.width = 400);
-const sketchColor = penColor.value ? penColor : "white";
-
+let comstomColor;
+let sketchColor = "yellow";
+console.log(sketchColor);
 canvas.addEventListener("mousemove", (e) => start(e));
-changeColor.addEventListener("onclick", getInputValue);
 
 function start(e) {
   ctx.fillStyle = sketchColor;
@@ -20,11 +21,7 @@ function start(e) {
 }
 
 function getInputValue() {
-  // Selecting the input element and get its value
-  let inputVal = penColor.value;
-
-  // Displaying the value
-  console.log(inputVal);
+  comstomColor = penColor.value;
+  sketchColor = penColor.value !== "" ? comstomColor : "yellow";
 }
-
 start();
