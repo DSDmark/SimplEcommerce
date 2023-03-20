@@ -1,8 +1,11 @@
 import React from "react";
+import { MainLayout, Header } from "./components/";
 
 function App() {
   return (
-    "hello"
+    <MainLayout>
+      <Header />
+    </MainLayout >
   )
 }
 
