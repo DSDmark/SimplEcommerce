@@ -1,17 +1,17 @@
 import { Route, Routes } from "react-router-dom"
-import { Header } from "../components/"
+import { Header, About, Products, Home, Cart, Errorpage } from "../components/"
 
 const AppRoutes = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Header />} />
-        <Route path="/home" element="" />
-        <Route path="/about" element="" />
-        <Route path="/products" element="" />
-        <Route path="/singleproduct/:id" element="" />
-        <Route path="/cart" element="" />
-        <Route path="*" element="" />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/singleproduct/:id" element={<Products />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<Errorpage />} />
       </Routes>
     </>
   )

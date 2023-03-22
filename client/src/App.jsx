@@ -1,10 +1,11 @@
 import React from "react";
+import RoutesLayout from "./routers/RoutesLayout"
 import { MainLayout, Header } from "./components/";
 
 function App() {
   return (
     <MainLayout>
-      <Header />
+      <RoutesLayout />
     </MainLayout >
   )
 }
