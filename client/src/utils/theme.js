@@ -55,7 +55,7 @@ const theme = createTheme({
     },
     MuiGrid: {
       styleOverrides: {
-        root: {
+        container: {
           justifyContent: "center",
           alignItems: "center",
         }

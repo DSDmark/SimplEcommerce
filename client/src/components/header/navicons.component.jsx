@@ -2,7 +2,6 @@ import React from 'react'
 import { LocalShippingOutlined, PersonOutlined, LocalGroceryStoreOutlined } from "@mui/icons-material"
 import { Grid, IconButton, Badge } from "@mui/material"
 import { Link as RouterLink } from "react-router-dom"
-import { shades } from "../../utils/theme"
 
 const NavIcons = () => {
   return (
