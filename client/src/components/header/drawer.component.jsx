@@ -9,36 +9,58 @@ const DrawerComponent = () => {
   const logo = "SimplEcommerce"
   const [toggle, setToggle] = useState(false)
 
-  const hendleToggle = () => {
+  const handleToggle = () => {
     setToggle((prev) => !prev)
   }
 
+  const handleCloseDrawer = () => {
+    setToggle(false);
+  };
+
+  const MenuDrawer = () => (
+    <Drawer open={toggle} onClose={handleCloseDrawer} >
+      <Box>
+        <Grid container direction="column" rowSpacing={2}>
+          <Grid item width="100%">
+            <Grid container direction="row" p={1} alignItems="center">
+              <Grid item ml={2}>
+                <Typography>{logo}</Typography>
+              </Grid>
+              <Grid item ml="auto">
+                <IconButton onClick={handleToggle}>
+                  <MenuIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <SearchBar />
+          </Grid>
+          <Grid item>
+            <NavIcons />
+          </Grid>
+        </Grid>
+      </Box>
+    </Drawer>
+  )
+
   return (
     <>
-      <Grid container>
-        <Grid item>
-          <Typography >
-            {logo}
-          </Typography>
+      <Box width="100%">
+        <Grid container>
+          <Grid item>
+            <Typography >
+              {logo}
+            </Typography>
+          </Grid>
+          <Grid item ml="auto">
+            <IconButton onClick={handleToggle}>
+              <MenuIcon />
+            </IconButton>
+          </Grid>
         </Grid>
-        <Grid item ml="auto">
-          <IconButton onClick={hendleToggle}>
-            <MenuIcon />
-          </IconButton>
-        </Grid>
-      </Grid>
-      <Drawer open={toggle} >
-        <Box justifyContent="center" >
-          <IconButton onClick={hendleToggle}>
-            <MenuIcon />
-          </IconButton>
-          <Typography>
-            {logo}
-          </Typography>
-          <SearchBar />
-          <NavIcons />
-        </Box>
-      </Drawer>
+        <MenuDrawer />
+      </Box>
     </ >
   )
 }

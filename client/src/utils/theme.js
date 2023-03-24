@@ -42,7 +42,7 @@ const theme = createTheme({
     MuiSvgIcon: {
       styleOverrides: {
         root: {
-          color: shades.pri[100],
+          color: shades.pri[200],
         }
       }
     },

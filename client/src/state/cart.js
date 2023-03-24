@@ -11,11 +11,14 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     setItems: (state, action) => {
-      state.items - action.payload
+      state.items = action.payload
+    },
+    isCartOpen: (state, action) => {
+      state.isCartOpen = !state.isCartOpen
     }
   }
 })
 
-export const { setItems } = cartSlice.actions
+export const { setItems, isCartOpen } = cartSlice.actions
 
 export default cartSlice.reducer
