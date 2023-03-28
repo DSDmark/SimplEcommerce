@@ -1,32 +1,31 @@
-import React from 'react'
-import { LocalShippingOutlined, PersonOutlined, LocalGroceryStoreOutlined } from "@mui/icons-material"
-import { Grid, IconButton, Badge } from "@mui/material"
-import { useDispatch, useSelector } from "react-redux"
-import { isCartOpen } from "../../state/cart"
+import { Grid, IconButton, Badge, styled } from "@mui/material"
+// import { isCartOpen } from "@/state/cart"
+import { Link as RouterLink } from "react-router-dom"
+import { shades } from "@/utils/theme"
 
-const NavIcons = () => {
-  const dispatch = useDispatch();
-  const cartLength = useSelector(state => state.cart.cart.length)
+const IconButtonStyle = styled(IconButton)(({ theme, isOpen }) => ({
+  color: isOpen ? shades.sco[500] : shades.sco[100]
+}))
+const NavIcons = ({ iconsData, isOpen = false }) => {
 
   return (
     <Grid container columnSpacing={2}>
-      <Grid item>
-        <IconButton onClick={() => dispatch(isCartOpen())} >
-          <Badge color="secondary" badgeContent={cartLength}>
-            <LocalGroceryStoreOutlined />
-          </Badge>
-        </IconButton>
-      </Grid>
-      <Grid item>
-        <IconButton>
-          <LocalShippingOutlined />
-        </IconButton>
-      </Grid>
-      <Grid item>
-        <IconButton>
-          <PersonOutlined />
-        </IconButton>
-      </Grid>
+      {iconsData.map(data => {
+        const { icon, route } = data;
+        const Icons = icon
+        return (
+          <Grid item key={window.crypto.randomUUID()}>
+            <RouterLink to={route}>
+              <IconButtonStyle isOpen={isOpen}>
+                <Badge>
+                  <Icons />
+                </Badge>
+              </IconButtonStyle>
+            </RouterLink>
+          </Grid>
+        )
+      })}
+
     </Grid >
   )
 }

@@ -1,9 +1,9 @@
-import { styled, InputBase, Box } from "@mui/material"
+import { styled, InputBase } from "@mui/material"
 import { Search as SearchIcon } from "@mui/icons-material"
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderradius: theme.shape.borderradius,
+  borderradius: theme.shape.borderRadius,
   background: theme.palette.primary.dark,
   margin: theme.spacing(0, 2),
 }));

@@ -1,7 +1,7 @@
 import createTheme from "@mui/material/styles/createTheme";
 
 export const shades = {
-  pri: {
+  sco: {
     100: "#f9e5e5",
     200: "#edb1b2",
     300: "#e17d7f",
@@ -10,7 +10,7 @@ export const shades = {
     600: "#821e1f",
     700: "#4e1213",
   },
-  sco: {
+  con: {
     100: "#e5f9e6",
     200: "#b1edb4",
     300: "#7ee182",
@@ -19,7 +19,7 @@ export const shades = {
     600: "#1e8123",
     700: "#124e15",
   },
-  con: {
+  pri: {
     100: "#fee0eb",
     200: "#fda1c3",
     300: "#fc629a",
@@ -42,14 +42,14 @@ const theme = createTheme({
     MuiSvgIcon: {
       styleOverrides: {
         root: {
-          color: shades.pri[200],
+          color: shades.sco[100],
         }
       }
     },
     MuiButton: {
       styleOverrides: {
         root: {
-          background: shades.pri[500]
+          background: shades.sco[500]
         }
       }
     },
@@ -61,13 +61,21 @@ const theme = createTheme({
         }
       }
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          textDecoration: "none",
+          color: shades.sco[100],
+        }
+      }
+    }
   },
   palette: {
     mode: "light",
     primary: {
-      main: shades.con[500],
-      light: shades.con[100],
-      dark: shades.con[700]
+      main: shades.pri[500],
+      light: shades.pri[100],
+      dark: shades.pri[700]
     },
     secondary: {
       main: shades.sco[500],
@@ -75,9 +83,9 @@ const theme = createTheme({
       dark: shades.sco[700]
     },
     info: {
-      main: shades.pri[500],
-      light: shades.pri[100],
-      dark: shades.pri[700]
+      main: shades.con[500],
+      light: shades.con[100],
+      dark: shades.con[700]
     },
   }
 })

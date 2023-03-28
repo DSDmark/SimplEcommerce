@@ -1,8 +1,8 @@
 import React from "react";
 import RoutesLayout from "./routers/RoutesLayout"
-import { MainLayout, Header } from "./components/";
+import { MainLayout } from "./components/";
 import { Provider } from "react-redux"
-import store from "./utils/store"
+import { store } from "./utils/"
 
 function App() {
   return (

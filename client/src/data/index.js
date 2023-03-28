@@ -1,1 +1,1 @@
-export { default as HeaderData } from "./headerData.js"
+export { default as HeaderData } from "./headerData"
