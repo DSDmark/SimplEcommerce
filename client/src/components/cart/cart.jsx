@@ -1,8 +1,11 @@
 import React from 'react'
+import { Drawer, Grid } from "@mui/material"
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <Drawer anchor="right" onClose={false}>
+      sdfsa,,
+    </Drawer>
   )
 }
 

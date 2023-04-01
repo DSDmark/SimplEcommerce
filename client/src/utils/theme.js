@@ -68,6 +68,14 @@ const theme = createTheme({
           color: shades.sco[100],
         }
       }
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          textDecoration: "none",
+          textTransform: "capitalize",
+        }
+      }
     }
   },
   palette: {
@@ -86,6 +94,15 @@ const theme = createTheme({
       main: shades.con[500],
       light: shades.con[100],
       dark: shades.con[700]
+    },
+  },
+  typography: {
+    title: {
+      color: shades.sco[500],
+      fontSize: "2.5rem"
+    },
+    subtitle: {
+      color: shades.sco[100],
     },
   }
 })

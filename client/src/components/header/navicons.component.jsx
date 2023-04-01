@@ -1,11 +1,12 @@
 import { Grid, IconButton, Badge, styled } from "@mui/material"
 // import { isCartOpen } from "@/state/cart"
 import { Link as RouterLink } from "react-router-dom"
-import { shades } from "@/utils/theme"
+import { shades } from "~/utils/theme"
 
 const IconButtonStyle = styled(IconButton)(({ theme, isOpen }) => ({
-  color: isOpen ? shades.sco[500] : shades.sco[100]
+  background: isOpen ? shades.sco[500] : "",
 }))
+
 const NavIcons = ({ iconsData, isOpen = false }) => {
 
   return (
