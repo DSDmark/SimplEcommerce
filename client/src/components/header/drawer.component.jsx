@@ -1,8 +1,8 @@
-import { Drawer, Grid, Typography, IconButton, Box } from "@mui/material"
+import { Drawer, Grid, IconButton, Box } from "@mui/material"
 import { Menu as MenuIcon } from "@mui/icons-material"
 import SearchBar from './searchbar.component'
 import NavIcons from './navicons.component'
-import { useToggleNavBar } from "@/utils"
+import { useToggleNavBar } from "~/utils"
 import Logo from "./logo.component"
 
 const DrawerComponent = ({ data }) => {
@@ -35,6 +35,7 @@ const DrawerComponent = ({ data }) => {
       </Box>
     </Drawer>
   )
+
   return (
     <>
       <Box width="100%">
