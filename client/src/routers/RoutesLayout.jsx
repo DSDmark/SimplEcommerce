@@ -12,7 +12,7 @@ const RoutesLayout = () => {
         <Route path="/" element={<Cart />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/products" element={<Products />} /> */}
+        <Route path="/products" element={<Products />} />
         <Route path="/singleproduct/:id" element={<Products />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>

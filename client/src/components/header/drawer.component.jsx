@@ -16,7 +16,7 @@ const DrawerComponent = ({ data }) => {
           <Grid item width="100%">
             <Grid container direction="row" p={1} alignItems="center">
               <Grid item ml={2}>
-                <Logo logoData={logo} isOpen={isOpen} />
+                <Logo logoData={logo} />
               </Grid>
               <Grid item ml="auto">
                 <IconButton onClick={handleToggle}>
@@ -29,7 +29,7 @@ const DrawerComponent = ({ data }) => {
             <SearchBar />
           </Grid>
           <Grid item>
-            <NavIcons iconsData={icons} isOpen={isOpen} />
+            <NavIcons iconsData={icons} />
           </Grid>
         </Grid>
       </Box>
