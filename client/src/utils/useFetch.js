@@ -1,22 +1,23 @@
 import { useEffect, useState, useMemo } from "react"
 
-const useFetcher = (f) => {
+const useFetcher = (f, q = "") => {
   const [fetchData, setData] = useState("");
 
-  const d = useMemo(async () => {
+  const fetchDataMemo = useMemo(async () => {
     try {
-      const r = await f();
+      const r = await f(q);
       setData(r.data);
       return r.data;
     } catch (err) {
       console.log(err)
     }
-  }, [fetchData])
+  }, [f])
 
   useEffect(() => {
-  d;
-  }, [d])
+    fetchDataMemo;
+  }, [fetchDataMemo])
 
+  return fetchData;
 }
 
 export default useFetcher;

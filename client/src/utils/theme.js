@@ -104,7 +104,8 @@ const theme = createTheme({
     subtitle: {
       color: shades.sco[100],
     },
-  }
+  },
+  zIndex: [10, 100],
 })
 
 export default theme

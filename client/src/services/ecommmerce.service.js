@@ -3,7 +3,7 @@ import { http } from "~/utils/"
 class FetchSevices {
   getAllData(category) {
     if (category) {
-      return http.get(`/api/products?populate=*[$and]filters[category][$eqi]=${category}`);
+      return http.get(`/api/products?filters[category][$eqi]=${category}&populate=image`);
     } else {
       return http.get(`/api/products?populate=*`);
     }
