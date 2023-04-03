@@ -1,5 +1,6 @@
 import { Box, Typography, styled, IconButton, useMediaQuery } from "@mui/material"
 import { Carousel } from "react-responsive-carousel"
+import { alpha } from "@mui/material/styles"
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useFetcher } from "~/utils/";
@@ -7,34 +8,38 @@ import FetchServices from "../services/ecommmerce.service.js"
 import { useNavigate } from "react-router-dom";
 import { shades } from "~/utils/theme.js";
 
-const CarouselImg = styled("img")(({ theme }) => ({
+const backgroundColor = alpha(shades.pri[600], 0.3);
+
+const CarouselImg = styled("img")({
   height: "400px",
   width: "100%",
   objectFit: "cover",
   position: "relative",
   backgroundAttachment: "fixed",
-}))
+})
 
-const ImgCaption = styled(Box)(({ theme, ismoblie }) => ({
+const ImgCaption = styled(Box)(({ theme }) => ({
   color: "white",
   position: "absolute",
-  top: "40%",
+  top: "35%",
   padding: theme.spacing(2, 4),
-  left: ismoblie ? "" : "10%",
+  [theme.breakpoints.down("sm")]: {
+    left: 0,
+    width: "100%",
+  },
+  left: "10%",
   cursor: "pointer",
-  background: `rgpa(${shades.pri[700]},0.5)`,
+  backgroundColor,
   display: "flex",
-  width: ismoblie ? "100%" : "auto",
   justifyContent: "center",
   flexDirection: "column",
 }))
 
 const IconBtn = styled(IconButton)(({ theme }) => ({
-  color: "white",
   position: "absolute",
   top: "50%",
   "&:hover": {
-    background: "rgb(0,0,0,0.5)",
+    backgroundColor,
   },
   zIndex: theme.zIndex[0],
   display: "flex",
@@ -43,7 +48,6 @@ const IconBtn = styled(IconButton)(({ theme }) => ({
 
 const MainCarousel = () => {
   const navigate = useNavigate();
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const BASE_URL = import.meta.env.VITE_BASE_URL
   const { data } = useFetcher(FetchServices.getAllData, "bestseller")
 
@@ -62,14 +66,30 @@ const MainCarousel = () => {
     renderArrowPrev: (e) => <IconBtn sx={{ left: 0 }} onClick={e}><ArrowBackIos /></IconBtn>
   }
 
+  const ImgShower = (props) => {
+    const isMoblie = useMediaQuery((theme) => theme.breakpoints.down("md"));
+    return (
+      <Box display="flex" flexDirection="row">
+        {isMoblie ? (
+          <CarouselImg {...props} />
+        ) : (
+          <>
+            <CarouselImg sx={{ filter: " grayscale(100%) sepia(100%) hue-rotate(200deg)" }} {...props} />
+            <CarouselImg  {...props} />
+          </>
+        )}
+      </Box>
+    )
+  }
+
   return (
     <Carousel {...props}>
       {data?.map(item => {
         const { id, attributes: { title, category, image: { data: { attributes: { url, height, width, caption } } } } } = item;
         return (
           <Box key={id} >
-            <CarouselImg height={height} width={width} src={BASE_URL + url} />
-            <ImgCaption ismoblie={isMobile} onClick={() => hendleNavigate(category)}>
+            <ImgShower height={height} width={width} src={BASE_URL + url} />
+            <ImgCaption onClick={() => hendleNavigate(category)}>
               <Typography variant="subtitle">
                 {title}
               </Typography>

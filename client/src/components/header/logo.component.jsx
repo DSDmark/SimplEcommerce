@@ -1,23 +1,16 @@
 import React from 'react'
-import { Link as MuiLink, styled } from "@mui/material"
+import { Link as MuiLink } from "@mui/material"
 import { Link as RouterLink } from "react-router-dom"
 import { shades } from '~/utils/theme'
-import useToggleNavBar from '~/utils/toggleNavBar'
 
-const LogoLink = styled(MuiLink)(({ theme, isopen }) => ({
-  [theme.breakpoints.down("md")]: {
-    color: isopen ? shades.sco[500] : "",
-  },
-}))
-
-const Logo = ({ logoData }) => {
+const Logo = ({ logoData, isOpen = false }) => {
   const { value, route } = logoData;
-  const [isOpen] = useToggleNavBar();
+  const logoColor = isOpen ? shades.sco[400] : shades.sco[100];
 
   return (
-    <LogoLink component={RouterLink} isopen={isOpen} to={route}>
+    <MuiLink component={RouterLink} sx={{ color: logoColor }} to={route}>
       {value}
-    </LogoLink>
+    </MuiLink>
   )
 }
 
