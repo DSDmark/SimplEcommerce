@@ -49,7 +49,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          background: shades.sco[500]
+          color: shades.sco[500],
         }
       }
     },
