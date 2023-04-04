@@ -8,14 +8,14 @@ import FetchServices from "../services/ecommmerce.service.js"
 import { useNavigate } from "react-router-dom";
 import { shades } from "~/utils/theme.js";
 
-const backgroundColor = alpha(shades.pri[600], 0.3);
+const backgroundColor = alpha(shades.pri[700], 0.4);
 
 const CarouselImg = styled("img")({
   height: "400px",
   width: "100%",
-  objectFit: "cover",
+  objectfit: "cover",
   position: "relative",
-  backgroundAttachment: "fixed",
+  backgroundattachment: "fixed",
 })
 
 const ImgCaption = styled(Box)(({ theme }) => ({
@@ -74,8 +74,8 @@ const MainCarousel = () => {
           <CarouselImg {...props} />
         ) : (
           <>
-            <CarouselImg sx={{ filter: " grayscale(100%) sepia(100%) hue-rotate(200deg)" }} {...props} />
-            <CarouselImg  {...props} />
+            <CarouselImg {...props} />
+            <CarouselImg sx={{ filter: " grayscale(100%) sepia(10%) hue-rotate(20deg)" }} {...props} />
           </>
         )}
       </Box>
