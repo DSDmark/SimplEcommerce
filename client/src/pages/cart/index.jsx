@@ -1,38 +1,46 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Box, Typography, Grid, Link as MuiLink, styled, Card, CardMedia, CardActions, CardContent, Button } from "@mui/material"
 import { shades } from '~/utils/theme'
 import { Link as RouterLink } from "react-router-dom"
-import images1 from "~/assets/images/simas_mo_W1_Kjxb_N_Tg_unsplash_de9a2e2482.jpg"
 import { useFetcher } from '~/utils/'
 import FetchServices from "~/services/ecommmerce.service.js"
+import { useState } from 'react'
 
 const Cart = () => {
   const { data } = useFetcher(FetchServices.getAllData)
-  console.log(data)
+  const BASE_URL = import.meta.env.VITE_BASE_URL
+  const [toggleRaise, setRaise] = useState(false)
+
+  const handleMouseOver = useCallback(() => {
+    setRaise(() => true);
+  }, []);
+
+  const handleMouseOut = useCallback(() => {
+    setRaise(() => false);
+  }, []);
 
   return (
     <Box mt={2}>
       <Grid container rowSpacing={2} columnSpacing={2}>
         {data?.map(item => {
-          const { id, attributes: { category, price, title, image: { attributes: url, formats: { small: height, width } } } } = item
-          console.log(id, category, price, title, url, height, width)
+          const { id, attributes: { title, category, price, image: { data: { attributes: { url, formats: { small: { height, width } } } } } } } = item
           return (
-            <Grid item>
-              <Card raised={true}>
-                <CardMedia image={images1} title="dsf" sx={{ height: 200 }} />
+            <Grid item key={id}>
+              <Card raised={toggleRaise} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                <CardMedia image={BASE_URL + url} title={title} sx={{ height, width }} />
                 <CardContent>
                   <Typography variant="title" >
-                    item category
+                    {title}
                   </Typography>
                 </CardContent>
                 <CardContent>
                   <Typography variant="subtitle" sx={{ color: shades.sco[300] }}>
-                    item name
+                    {category}
                   </Typography>
                 </CardContent>
                 <CardActions>
                   <Button variant="outlined">add to cart</Button>
-                  <Button>show details</Button>
+                  <Button>${price}</Button>
                 </CardActions>
               </Card>
             </Grid>
