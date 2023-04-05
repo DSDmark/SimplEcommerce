@@ -1,4 +1,6 @@
 import createTheme from "@mui/material/styles/createTheme";
+import { useMediaQuery } from "@mui/material"
+
 
 export const shades = {
   sco: {
@@ -99,7 +101,7 @@ const theme = createTheme({
   typography: {
     title: {
       color: shades.sco[500],
-      fontSize: "2.5rem"
+      fontSize: "1.5rem"
     },
     subtitle: {
       color: shades.sco[100],

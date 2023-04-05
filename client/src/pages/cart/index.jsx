@@ -23,11 +23,12 @@ const Cart = () => {
     <Box mt={2}>
       <Grid container rowSpacing={2} columnSpacing={2}>
         {data?.map(item => {
-          const { id, attributes: { title, category, price, image: { data: { attributes: { url, formats: { small: { height, width } } } } } } } = item
+          const { id, attributes: { title, category, price, image: { data: { attributes: { url } } } }
+          } = item
           return (
             <Grid item key={id}>
-              <Card raised={toggleRaise} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-                <CardMedia image={BASE_URL + url} title={title} sx={{ height, width }} />
+              <Card sx={{ "&:hover": { boxShadow: "1px 3px 9px #000" } }}>
+                <CardMedia image={BASE_URL + url} title={title} sx={{ height: 400, width: 400 }} />
                 <CardContent>
                   <Typography variant="title" >
                     {title}
