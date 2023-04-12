@@ -22,6 +22,7 @@ const ImgCaption = styled(Box)(({ theme }) => ({
   color: "white",
   position: "absolute",
   top: "35%",
+  width: "500px",
   padding: theme.spacing(2, 4),
   [theme.breakpoints.down("sm")]: {
     left: 0,
