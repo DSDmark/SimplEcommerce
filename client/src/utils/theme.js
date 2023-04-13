@@ -1,16 +1,14 @@
 import createTheme from "@mui/material/styles/createTheme";
-import { useMediaQuery } from "@mui/material"
-
 
 export const shades = {
   sco: {
-    100: "#f9e5e5",
-    200: "#edb1b2",
-    300: "#e17d7f",
-    400: "#d5494b",
-    500: "#b62a2b",
-    600: "#821e1f",
-    700: "#4e1213",
+    100: "#fee0eb",
+    200: "#fda1c3",
+    300: "#fc629a",
+    400: "#fb2372",
+    500: "#dc0452",
+    600: "#9d033b",
+    700: "#9d033b",
   },
   con: {
     100: "#e5f9e6",
@@ -22,13 +20,13 @@ export const shades = {
     700: "#124e15",
   },
   pri: {
-    100: "#fee0eb",
-    200: "#fda1c3",
-    300: "#fc629a",
-    400: "#fb2372",
-    500: "#dc0452",
-    600: "#9d033b",
-    700: "#9d033b",
+    100: "#f9e5e5",
+    200: "#edb1b2",
+    300: "#e17d7f",
+    400: "#d5494b",
+    500: "#b62a2b",
+    600: "#821e1f",
+    700: "#4e1213",
   }
 }
 
@@ -101,11 +99,16 @@ const theme = createTheme({
   typography: {
     title: {
       color: shades.sco[500],
-      fontSize: "1.5rem"
+      fontSize: "2rem"
     },
     subtitle: {
+      fontSize: "1.2rem",
       color: shades.sco[100],
     },
+    caption: {
+      color: shades.sco[100],
+      fontSize: "1rem",
+    }
   },
   zIndex: [10, 100],
 })
