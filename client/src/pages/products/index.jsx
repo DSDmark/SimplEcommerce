@@ -3,6 +3,7 @@ import { Box, Typography, Grid, Link as MuiLink, styled, Card, CardMedia, CardAc
 import { shades } from '~/utils/theme'
 import { useFetcher } from '~/utils/'
 import FetchServices from "~/services/ecommmerce.service.js"
+import { Link as RouterLink } from "react-router-dom"
 
 const ImgCard = styled(CardMedia)(({ theme }) => ({
   height: "400px",
@@ -14,7 +15,7 @@ const ImgCard = styled(CardMedia)(({ theme }) => ({
   }
 }))
 
-const Cart = () => {
+const Products = () => {
   const { data } = useFetcher(FetchServices.getAllData)
   const BASE_URL = import.meta.env.VITE_BASE_URL
 
@@ -34,17 +35,19 @@ const Cart = () => {
                 }, padding: ".5rem",
 
               }} >
-                <ImgCard image={BASE_URL + url} title={title} />
-                <CardContent >
-                  <Typography variant="title" >
-                    {title}
-                  </Typography>
+                <MuiLink component={RouterLink} to={`/singleproduct/=${id}`}>
+                  <ImgCard image={BASE_URL + url} title={title} />
+                  <CardContent >
+                    <Typography variant="title" >
+                      {title}
+                    </Typography>
 
-                  <br />
-                  <Typography variant="subtitle" sx={{ color: shades.sco[300] }}>
-                    {category}
-                  </Typography>
-                </CardContent>
+                    <br />
+                    <Typography variant="subtitle" sx={{ color: shades.sco[300] }}>
+                      {category}
+                    </Typography>
+                  </CardContent>
+                </MuiLink>
                 <CardActions>
                   <Button variant="outlined">add to cart</Button>
                   <Button>${price}</Button>
@@ -58,4 +61,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default Products 

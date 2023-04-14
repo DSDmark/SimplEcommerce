@@ -49,7 +49,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          color: shades.sco[500],
+          color: shades.sco[600],
         }
       }
     },
@@ -98,15 +98,15 @@ const theme = createTheme({
   },
   typography: {
     title: {
-      color: shades.sco[500],
+      color: shades.sco[700],
       fontSize: "2rem"
     },
     subtitle: {
       fontSize: "1.2rem",
-      color: shades.sco[100],
+      color: shades.sco[500],
     },
     caption: {
-      color: shades.sco[100],
+      color: shades.sco[200],
       fontSize: "1rem",
     }
   },

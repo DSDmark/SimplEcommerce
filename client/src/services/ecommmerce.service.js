@@ -8,8 +8,8 @@ class FetchSevices {
       return http.get(`/api/products?populate=*`);
     }
   }
-  getLogoData(id) {
-    return http.get("/api/website-logo?populate=*");
+  getById(id) {
+    return http.get(`/api/products?filters[id][$eqi]=${id}&populate=*`);
   }
   // create(data) {
 
