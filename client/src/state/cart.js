@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-  isCartOpen: false,
   cart: [],
   items: [],
 }
@@ -13,9 +12,6 @@ export const cartSlice = createSlice({
     setItems: (state, action) => {
       state.items = action.payload
     },
-    isCartOpen: (state, action) => {
-      state.isCartOpen = !state.isCartOpen
-    }
   }
 })
 
